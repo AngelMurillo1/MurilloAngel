@@ -7,3 +7,7 @@ h2{
 h3{
     color:rgb(226, 43, 198);
 }
+
+table,td,tr{
+     border:1px solid blue;
+}
