@@ -21,7 +21,9 @@ let frutas=['pera','manzana','frutilla','naranja','banana'];
 
 for (const fruta of frutas){
     if (fruta=="manzana"){
+
         console.log(fruta);
+        
     }
     
 }

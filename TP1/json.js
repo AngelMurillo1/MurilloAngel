@@ -20,9 +20,27 @@ let personaje={
     "url": "https://rickandmortyapi.com/api/character/140",
     "created": "2017-12-27T18:47:44.566Z"
 }
-console.log("El personaje " + personaje.name + " esta "+ personaje.status);
 
-document.getElementById("result").innerHTML=("El personaje " + personaje.name + " esta " + personaje.status);
+//console.log("El personaje " + personaje.name + " esta "+ personaje.status);
+
+//document.getElementById("result").innerHTML=("El personaje " + personaje.name + " esta " + personaje.status);
+
+function buscarPersonaje(){
+
+    const codigoInput= document.getElementById("codigo").value 
+
+    if(parseInt(codigoInput) === personaje.id){
+
+        document.getElementById("result").innerHTML=("El personaje " + personaje.name + " esta " + personaje.status);
+
+    }    
+    else{
+        document.getElementById("result").innerHTML=("No existe personaje con este id");
+    }
+
+
+
+}
 
 /*
 let jugador={
