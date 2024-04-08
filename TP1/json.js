@@ -24,9 +24,12 @@ let personaje = {
 //document.getElementById("result").innerHTML=("El personaje " + personaje.name + " esta " + personaje.status);
 
 
-let codigoInput = document.getElementById("codigo").value;
 
-//forma para buscar los primeros 20 personajes
+
+/*
+forma para buscar los primeros 20 personajes
+
+let codigoInput = document.getElementById("codigo").value;
 
 function buscarPersonaje() {
 
@@ -52,6 +55,30 @@ function buscarPersonaje() {
       });
     });
 }
+*/
+
+
+// forma para buscar usando la api chacarcter
+
+function buscarPersonaje(){
+  let codigoInput = document.getElementById("codigo").value;
+  document.getElementById("result").innerHTML=" ";
+  fetch("https://rickandmortyapi.com/api/character/" + codigoInput)
+  .then(Response => Response.json())
+  .then(data =>{
+  
+      if (data.name != null){
+          document.getElementById("result").innerHTML=("El personaje " + data.name + " esta " + data.status)
+  
+      }
+          else {
+          
+              document.getElementById("result").innerHTML=("El personaje no existe")   
+          }
+  
+      console.log(data)   
+  } )
+  }
 
 
 
