@@ -58,8 +58,9 @@ function buscarPersonaje() {
 */
 
 
-/* 
-forma para buscar usando la api chacarcter
+
+/*forma para buscar usando la api chacarcter
+
 
 function buscarPersonaje(){
   let codigoInput = document.getElementById("codigo").value;
@@ -82,7 +83,6 @@ function buscarPersonaje(){
   }
   */
 
-
   /* buscar id del personaje y con su foto saber su genero
   function buscarImagen(){
     let codigoInput = document.getElementById("code").value;
@@ -90,12 +90,11 @@ function buscarPersonaje(){
     fetch(`https://rickandmortyapi.com/api/character/${codigoInput}`)
     .then(Response => Response.json())
     .then(data =>{
-    let imagen=document.getElementById("imagen").src;
+    let imagen=document.getElementById("imagen");
     imagen.src=data.image;
         if (data.gender === "unknown"){
-            document.getElementById("results").innerHTML=`<img src="${data.image}">
-                                                         <p>${data.name}</p>
-                                                         <p>${data.gender}</p>` 
+            document.getElementById("results").innerHTML=`<img src="${imagen}">`
+                                                     
     
         }
             else {
