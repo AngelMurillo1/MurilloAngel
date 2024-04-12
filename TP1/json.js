@@ -58,7 +58,8 @@ function buscarPersonaje() {
 */
 
 
-// forma para buscar usando la api chacarcter
+/* 
+forma para buscar usando la api chacarcter
 
 function buscarPersonaje(){
   let codigoInput = document.getElementById("codigo").value;
@@ -79,9 +80,58 @@ function buscarPersonaje(){
       console.log(data)   
   } )
   }
+  */
 
 
+  /* buscar id del personaje y con su foto saber su genero
+  function buscarImagen(){
+    let codigoInput = document.getElementById("code").value;
+    document.getElementById("results").innerHTML=" ";
+    fetch(`https://rickandmortyapi.com/api/character/${codigoInput}`)
+    .then(Response => Response.json())
+    .then(data =>{
+    let imagen=document.getElementById("imagen").src;
+    imagen.src=data.image;
+        if (data.gender === "unknown"){
+            document.getElementById("results").innerHTML=`<img src="${data.image}">
+                                                         <p>${data.name}</p>
+                                                         <p>${data.gender}</p>` 
+    
+        }
+            else {
+            
+                document.getElementById("results").innerHTML=("El genero del personaje no es el correcto")   
+            }
+    
+        console.log(data)   
+    } )
+    }
+  */
 
+    function comparar(){
+      let codigoInput = document.getElementById("codigo").value;
+      let codigoInput2 = document.getElementById("code").value;
+      document.getElementById("resultado").innerHTML=" ";
+      fetch(`https://rickandmortyapi.com/api/character/${codigoInput},${codigoInput2}`)
+      .then(Response => Response.json())
+      .then(data =>{
+      let imagen=document.getElementById("img");
+      imagen.src=data[0].image;
+      let imagen2 = document.getElementById("img2");
+      imagen2.src=data[1].image;
+       
+      if(data[0].gender === data[1].gender){
+          document.getElementById("resultado").innerHTML=`<img src="https://media.istockphoto.com/id/1133442802/es/vector/marca-de-verificaci%C3%B3n-verde-ilustraci%C3%B3n-vectorial.jpg?s=612x612&w=0&k=20&c=VFWXNv5mal3SxiaabNxWedt-vGBvq_NODY_OZyYNXdM=">`
+      }
+  
+      else {
+          document.getElementById("resultado").innerHTML=`<img src="https://w7.pngwing.com/pngs/509/800/png-transparent-door-organization-tick-cross-angle-logo-business-thumbnail.png">`
+      }
+          
+      
+          console.log(data)   
+      } )
+      }
 /*
 let jugador={
     "nombre": "Nahuel ",
