@@ -110,13 +110,17 @@ function buscarPersonaje(){
     function comparar(){
       let codigoInput = document.getElementById("codigo").value;
       let codigoInput2 = document.getElementById("code").value;
+
       document.getElementById("resultado").innerHTML=" ";
+
       fetch(`https://rickandmortyapi.com/api/character/${codigoInput},${codigoInput2}`)
       .then(Response => Response.json())
       .then(data =>{
+        
       let imagen=document.getElementById("img");
-      imagen.src=data[0].image;
       let imagen2 = document.getElementById("img2");
+
+      imagen.src=data[0].image;
       imagen2.src=data[1].image;
        
       if(data[0].gender === data[1].gender){
