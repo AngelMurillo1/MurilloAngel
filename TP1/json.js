@@ -58,7 +58,7 @@ function buscarPersonaje() {
 */
 
 
-// forma para buscar usando la api chacarcter
+/*forma para buscar usando la api chacarcter
 
 function buscarPersonaje(){
   let codigoInput = document.getElementById("codigo").value;
@@ -80,6 +80,35 @@ function buscarPersonaje(){
   } )
   }
 
+*/
+
+
+
+function buscarImagen(){
+  let codigoInput = document.getElementById("codigo").value;
+  
+  document.getElementById("result").innerHTML=" ";
+  fetch(`https://rickandmortyapi.com/api/character/${codigoInput}`)
+  .then(Response => Response.json())
+  .then(data =>{
+  let imagen= document.getElementById("imagen").src;
+  imagen.src=data.image;
+   let gender=data.gender;
+  
+      if (gender === "unknown"){
+          document.getElementById("result").innerHTML=`<img src="${data.image}">
+                                                       <p>${data.name}<p>
+                                                       <p>${data.gender}<p>`
+  
+      }
+          else {
+          
+              document.getElementById("result").innerHTML=("El personaje no es del genero que buscas")   
+          }
+  
+      console.log(data)   
+  } )
+  }
 
 
 /*
