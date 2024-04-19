@@ -6,15 +6,19 @@ function llamar(){
     
         console.log(data)
 
+    //Definicion de variables de las coordenadas
         let longitud = data.results[0].location.coordinates.longitude
         let latitud = data.results[0].location.coordinates.latitude
 
-        let map = L.map("map").setView([longitud, latitud], 10);
+    //Definimos el mapa y le paso las variables anteriores    
+        let map = L.map("map").setView([longitud, latitud], 5);
         let marker = L.marker([longitud, latitud]).addTo(map);
 
+    //Variable con la imagen de la persona    
         let imagen = document.getElementById("img");
         imagen.src = data.results[0].picture.large;
 
+    //Variables con el nombre y apellido de la persona    
         let nombre = data.results[0].name.first;
         let apellido = data.results[0].name.last;
 
@@ -27,7 +31,5 @@ function llamar(){
         }).addTo(map);
     })
 
-    
-    
-}
-        
+}   
+
