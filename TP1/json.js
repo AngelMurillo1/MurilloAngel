@@ -116,7 +116,7 @@ function buscarPersonaje(){
       fetch(`https://rickandmortyapi.com/api/character/${codigoInput},${codigoInput2}`)
       .then(Response => Response.json())
       .then(data =>{
-        
+
       let imagen=document.getElementById("img");
       let imagen2 = document.getElementById("img2");
 
@@ -135,6 +135,7 @@ function buscarPersonaje(){
           console.log(data)   
       } )
       }
+      
 /*
 let jugador={
     "nombre": "Nahuel ",
