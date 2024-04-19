@@ -6,20 +6,20 @@ function llamar(){
     
         console.log(data)
 
-        let longitud= data.results[0].location.coordinates.longitude
-        let latitud= data.results[0].location.coordinates.latitude
+        let longitud = data.results[0].location.coordinates.longitude
+        let latitud = data.results[0].location.coordinates.latitude
 
         let map = L.map("map").setView([longitud, latitud], 10);
-
         let marker = L.marker([longitud, latitud]).addTo(map);
 
-        //  circle = L.circle([longitud, latitud], {
-        //     color: 'red',
-        //     fillColor: '#f03',
-        //     fillOpacity: 0.5,
-        //     radius: 500
-        // }).addTo(map);
-       
+        let imagen = document.getElementById("img");
+        imagen.src = data.results[0].picture.large;
+
+        let nombre = data.results[0].name.first;
+        let apellido = data.results[0].name.last;
+
+        document.getElementById("nombre").innerHTML=`${nombre + " " + apellido}`
+                                                      
 
         L.tileLayer(`https://tile.openstreetmap.org/{z}/{x}/{y}.png`, {
             maxZoom: 90,
