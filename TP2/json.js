@@ -1,4 +1,48 @@
-let personaje = {
+   function comparar(){
+      let codigoInput = document.getElementById("codigo").value;
+      let codigoInput2 = document.getElementById("code").value;
+
+      document.getElementById("resultado").innerHTML=" ";
+
+      fetch(`https://rickandmortyapi.com/api/character/${codigoInput},${codigoInput2}`)
+      .then(Response => Response.json())
+      .then(data =>{
+
+      let imagen=document.getElementById("img");
+      let imagen2 = document.getElementById("img2");
+
+      imagen.src=data[0].image;
+      imagen2.src=data[1].image;
+       
+      if(data[0].gender === data[1].gender){
+          document.getElementById("resultado").innerHTML=`<img src="https://media.istockphoto.com/id/1133442802/es/vector/marca-de-verificaci%C3%B3n-verde-ilustraci%C3%B3n-vectorial.jpg?s=612x612&w=0&k=20&c=VFWXNv5mal3SxiaabNxWedt-vGBvq_NODY_OZyYNXdM=">`
+      }
+  
+      else {
+          document.getElementById("resultado").innerHTML=`<img src="https://w7.pngwing.com/pngs/509/800/png-transparent-door-organization-tick-cross-angle-logo-business-thumbnail.png">`
+      }
+          
+      
+          console.log(data)   
+      } )
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      /*let personaje = {
   id: 140,
   name: "Genital Washer",
   status: "Alive",
@@ -18,6 +62,9 @@ let personaje = {
   url: "https://rickandmortyapi.com/api/character/140",
   created: "2017-12-27T18:47:44.566Z",
 };
+*/
+
+
 
 //console.log("El personaje " + personaje.name + " esta "+ personaje.status);
 
@@ -106,35 +153,6 @@ function buscarPersonaje(){
     } )
     }
   */
-
-    function comparar(){
-      let codigoInput = document.getElementById("codigo").value;
-      let codigoInput2 = document.getElementById("code").value;
-
-      document.getElementById("resultado").innerHTML=" ";
-
-      fetch(`https://rickandmortyapi.com/api/character/${codigoInput},${codigoInput2}`)
-      .then(Response => Response.json())
-      .then(data =>{
-
-      let imagen=document.getElementById("img");
-      let imagen2 = document.getElementById("img2");
-
-      imagen.src=data[0].image;
-      imagen2.src=data[1].image;
-       
-      if(data[0].gender === data[1].gender){
-          document.getElementById("resultado").innerHTML=`<img src="https://media.istockphoto.com/id/1133442802/es/vector/marca-de-verificaci%C3%B3n-verde-ilustraci%C3%B3n-vectorial.jpg?s=612x612&w=0&k=20&c=VFWXNv5mal3SxiaabNxWedt-vGBvq_NODY_OZyYNXdM=">`
-      }
-  
-      else {
-          document.getElementById("resultado").innerHTML=`<img src="https://w7.pngwing.com/pngs/509/800/png-transparent-door-organization-tick-cross-angle-logo-business-thumbnail.png">`
-      }
-          
-      
-          console.log(data)   
-      } )
-      }
       
 /*
 let jugador={
