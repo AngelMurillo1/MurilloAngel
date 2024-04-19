@@ -11,7 +11,7 @@ function llamar(){
         let latitud = data.results[0].location.coordinates.latitude
 
     //Definimos el mapa y le paso las variables anteriores    
-        let map = L.map("map").setView([longitud, latitud], 5);
+        let map = L.map("map").setView([longitud, latitud], 4);
         let marker = L.marker([longitud, latitud]).addTo(map);
 
     //Variable con la imagen de la persona    
