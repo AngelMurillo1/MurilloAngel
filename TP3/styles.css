@@ -13,3 +13,7 @@
     font-style: unset;
     text-decoration: underline;
 }
+#error{
+    color: red;
+    top: 10px;
+}

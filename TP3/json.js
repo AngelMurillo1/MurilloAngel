@@ -22,6 +22,14 @@ function llamar(){
         let nombre = data.results[0].name.first;
         let apellido = data.results[0].name.last;
 
+
+        container = L.DomUtil.get("map");
+        if (container != null) {
+        container._leaflet_id=null;
+        }
+        
+
+
         document.getElementById("nombre").innerHTML=`${nombre + " " + apellido}`
                                                       
 
@@ -30,6 +38,8 @@ function llamar(){
             attribution: `&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>`
         }).addTo(map);
     })
-
+.catch( error => {
+    document.getElementById("error").innerHTML="Se ha producido un error ===> " + error
+})
 }   
 
