@@ -17,16 +17,8 @@ function search(){
 
     }
     console.log($array)
-
-    fetch(`https://rickandmortyapi.com/api/character/${$numero}`)
-      .then(Response => Response.json())
-      .then(data =>{
-
-            
-
-    })
-
 }
+
 
 function search2(){
 
@@ -45,29 +37,28 @@ function search2(){
     if( i1 ===3 && i2 === 3){
         buscarImagenes();
     }
-
     console.log($array)
-
 }
+
 
 function buscarImagenes(){
 
     personajesID= $array.join(",");
 
-    fetch(`https://rickandmortyapi.com/api/character/`+personajesID)
+    fetch(`https://rickandmortyapi.com/api/character/${personajesID}`)
     .then(Response => Response.json())
     .then(data =>{
 
-        data.forEach(personaje => {
+        data.forEach((personaje, index) => {
 
-            const img = document.getElementById("imagen");
-            img.src= personaje.image
+            const img = document.createElement("img");
+            img.src = personaje.image;
+
+            img.classList.add(`imagen-${index + 1}`); 
 
             document.getElementById("imagenes").appendChild(img);
             
         });
-
-    
 
     })
 }
