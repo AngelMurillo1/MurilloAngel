@@ -19,7 +19,7 @@
 .imagen-4{
     margin-bottom: 50px;
     height: 170px;
-    margin-left: 90px;
+    margin-right: 90px;
 }
 
 .imagen-5{
@@ -31,13 +31,16 @@
 .imagen-6{
     margin-bottom: 50px;
     height: 170px;
-    margin-left: 10px;
+    margin-right: 300px;
 }
 
 #codigo2{
-margin-left: 390px;
+margin-top: 30px;
 }
 
-#codigo1{
-    margin-left: 5px;
+
+
+.resultado{
+
+    margin-right: 90px;
 }
