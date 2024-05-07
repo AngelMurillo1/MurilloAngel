@@ -5,9 +5,15 @@ let $array2 = [];
 
 function search(){
 
-    i1 += 1
+    
 
     let $numero= document.getElementById("codigo1").value;
+    
+    console.log($array.includes($numero))
+
+    if ($numero > 0  && $numero < 1000 && !$array.includes($numero) && !$array2.includes($numero)){ 
+
+    i1 += 1  
 
     $array = $array.concat([$numero]);
 
@@ -17,6 +23,15 @@ function search(){
     document.getElementById("enviar1").disabled = true;
 
     }
+    }
+
+    else{
+
+        alert("El numero ingresado no es valido. Ingrese uno nuevo");
+
+        document.getElementById("codigo1") != null;
+
+    }
     
     console.log($array)
 }
@@ -24,10 +39,14 @@ function search(){
 
 function search2(){
 
+    let $numero2= document.getElementById("codigo2").value;
+
+    console.log($array2.includes($numero2))
+
+    if ($numero2 > 0 && $numero2 < 1000 && !$array.includes($numero2) && !$array2.includes($numero2)){
+
     i2 += 1
 
-    let $numero2= document.getElementById("codigo2").value;
-    
     $array2 = $array2.concat([$numero2]);
 
     if (i2 === 3){
@@ -39,6 +58,14 @@ function search2(){
     if( i1 === 3 && i2 === 3){
     buscarImagenes();
     }
+}
+
+else{
+
+    alert("El numero ingresado no es valido. Ingrese uno nuevo")
+    document.getElementById("codigo2") != null;
+
+}
     console.log($array2)
 }
 

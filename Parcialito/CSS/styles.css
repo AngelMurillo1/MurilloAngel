@@ -7,7 +7,6 @@
 .imagen-2{
     margin-bottom: 50px;
     height: 170px;
-    margin-left: 10px;
 }
 
 .imagen-3{
@@ -19,7 +18,7 @@
 .imagen-4{
     margin-bottom: 50px;
     height: 170px;
-    margin-right: 90px;
+    margin-left: 10px;
 }
 
 .imagen-5{
@@ -31,12 +30,10 @@
 .imagen-6{
     margin-bottom: 50px;
     height: 170px;
-    margin-right: 300px;
+    margin-left: 10px;
 }
 
-#codigo2{
-margin-top: 30px;
-}
+
 
 
 
