@@ -1,5 +1,16 @@
 .result{
-    border-color: blue;
-    
-    border-radius: 30%;
+ padding: 10px 20px;
+ background-color: #4CAF50;
+ color: white;
+ border: none;
+ border-radius: 5%;
+ cursor: pointer;
+}
+
+.result:hover{
+    background-color: #45a049;
+}
+
+.result:active{
+    background-color: #3e8e41;
 }
