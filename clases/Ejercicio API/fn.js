@@ -66,7 +66,7 @@ function Usuario(){
 
         console.log(usuario)
 
-        usuario.getEdad()
+        usuario.getEdad();
 
 
         // let usuario = new Persona(data.results[0].name.first, data.results[0].name.last, data.results[0].gender, 
