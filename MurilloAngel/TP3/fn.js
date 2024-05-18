@@ -8,12 +8,6 @@ class Persona{
 
    }
 
-   Saludar(){
-
-    console.log(`Hola, soy ${this.nombre} ${this.apellido} y tengo ${this.edad} años`)
-
-   }
-
    getEdad(){
 
     //Año actual
@@ -39,9 +33,11 @@ class Persona{
 
 
 let Angel = new Persona('Angel','Murillo','2001-07-26');
-
 let Bruno = new Persona('Bruno','Godoy','2001-09-13');
 
 console.log(`${Angel.nombre} tiene ${Angel.getEdad()} años.`);
 console.log(`${Bruno.nombre} tiene ${Bruno.getEdad()} años.`);
+
+
+
 
