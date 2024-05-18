@@ -68,7 +68,6 @@ function Usuario(){
 
         usuario.getEdad();
 
-
         // let usuario = new Persona(data.results[0].name.first, data.results[0].name.last, data.results[0].gender, 
         //                           data.results[0].location.city, data.results[0].email)
 
