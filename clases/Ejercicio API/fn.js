@@ -26,13 +26,13 @@ class Persona{
     // }
 
 
-    // esMenor(){
-    //     console.log(`Hola soy ${this.name} ${this.lastname} y soy cliente, mi cuenta de banco es ${this.numero_cuenta}`)
-    // }
+    esMenor(){
+        console.log(`Soy cliente`)
+    }
 
-    // esMayor(){
-    //     console.log(`Hola soy ${this.name} ${this.lastname} y soy empleado, mi legajo es ${this.legajo}`)
-    // }
+    esMayor(){
+        console.log(`Soy empleado`)
+    }
 
 }
 
@@ -65,8 +65,17 @@ function Usuario(){
             data.results[0].location.city, data.results[0].email, data.results[0].dob.date)
 
         console.log(usuario)
+        
+        if (usuario.getEdad() < 18 ) {
+            usuario.esMenor()
+        }
 
-        usuario.getEdad();
+        else {
+            usuario.esMayor()
+        }
+        
+        // usuario.getEdad();
+
 
         // let usuario = new Persona(data.results[0].name.first, data.results[0].name.last, data.results[0].gender, 
         //                           data.results[0].location.city, data.results[0].email)
