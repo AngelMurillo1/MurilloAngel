@@ -7,11 +7,8 @@ class Cliente{
 }
 
 class Cuenta_Bancaria{
-    constructor(metodo,consultar_saldo,depositar,retirar){
-        this.metodo = metodo
-        this.consultar_saldo = consultar_saldo
-        this.depositar = depositar
-        this.retirar = retirar 
+    constructor(){
+        
     }
 
 }
