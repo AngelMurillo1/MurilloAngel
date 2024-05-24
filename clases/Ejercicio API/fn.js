@@ -67,13 +67,13 @@ function Usuario(){
         console.log(usuario)
         
         if (usuario.getEdad() < 18 ) {
-            usuario.esMenor()
+           usuario.esMenor()
         }
 
-        else {
+        else {  
             usuario.esMayor()
         }
-        
+
         // usuario.getEdad();
 
 
