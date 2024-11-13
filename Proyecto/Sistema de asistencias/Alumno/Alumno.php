@@ -1,5 +1,6 @@
 <?php
 
+require_once "../Parametros/Parametros.php";
 
 class Alumno
 {
@@ -63,6 +64,8 @@ class Alumno
     }
 
     public function estado($database, $promedio, $id){
+        $parametros = new Parametros();
+
         $query = "SELECT COUNT(*) as 'count' FROM  `asistencias` WHERE `id_alumno` = $id";
         $stmt = $database->conn->prepare($query);
         $stmt->execute();
@@ -79,15 +82,62 @@ class Alumno
             return "No tiene asistencias cargadas";
         }
 
-        
+        $datos = $parametros->getParametros($database);
 
+        $porcentajePromocion = $datos[0]["porcentajePromocion"];
+        $porcentajeRegular = $datos[0]["porcentajeRegular"];
+        $notaPromocion = $datos[0]["notaPromocion"];
+        $notaRegular = $datos[0]["notaRegular"];
 
-        if (($promedio >= 7) && ($resultado >= 70)) {
+        if (($promedio >= $notaPromocion) && ($resultado >= $porcentajePromocion)) {
             return "Promoción";
-        }elseif (($promedio >= 6) && ($resultado>=60) ) {
+        }elseif (($promedio >= $notaRegular) && ($resultado>=$porcentajeRegular) ) {
             return "Regular";
         }else {
             return "Libre";
         }
     }
+
+    public function validateAlumno($nombre, $apellido, $dni, $fecha_nacimiento){
+
+        if ((!ctype_alpha($nombre) && !ctype_alpha($apellido))) {
+           return "El nombre y el apellido deben tener caracteres alfabeticos";
+        } 
+   
+        if (strlen($nombre) >= 50) {
+           return "El nombre debe tener menos de 50 caracteres.";
+       }
+
+   
+       if (strlen($apellido) >= 50) {
+           return "El apellido debe tener menos de 50 caracteres.";
+       }
+   
+       if (!ctype_digit($dni)) {
+           return "El dni solo debe contener caracteres numéricos.";
+       }
+   
+       if (strlen($dni) >= 10) {
+           return "El DNI debe tener menos de 10 caracteres.";
+       }
+
+         // Intentar crear un objeto DateTime a partir de la fecha ingresada
+        $fecha = DateTime::createFromFormat('Y-m-d', $fecha_nacimiento);
+
+        // Verificar que la fecha no sea en el futuro
+        $hoy = new DateTime();
+        if ($fecha > $hoy) {
+        return "La fecha de nacimiento no puede ser una fecha futura.";
+        }
+
+        $edad_minima = 18;
+
+        // Verificar que la persona tenga al menos $edad_minima años
+        $edad = $hoy->diff($fecha)->y;  // Calcula la diferencia de años
+        if ($edad < $edad_minima) {
+        return "Debe tener al menos $edad_minima años.";
+        }
+
+        return "valido";
+       }  
 }

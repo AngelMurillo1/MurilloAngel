@@ -49,8 +49,8 @@ $materias = $database->ejecutarConsulta("SELECT `materias`.*
     INNER JOIN `profesores` ON `materias`.`id_profesor` = `profesores`.`id`");
 
 
-
-
+$cumpleaños= $database->ejecutarConsulta("SELECT * FROM `alumnos` WHERE MONTH(fecha_nacimiento) = MONTH(CURDATE()) 
+AND DAY(fecha_nacimiento) = DAY(CURDATE())");
 
 ?>
 <!DOCTYPE html>
@@ -98,9 +98,12 @@ $materias = $database->ejecutarConsulta("SELECT `materias`.*
             <!-- Botón de nuevo alumno -->
              <?php if (!empty($materias)) {
                 echo "<a href='alta_alumno.php' class='btn btn-success align-self-end'>Nuevo Alumno</a>";
+                echo "<a href='../Parametros/index_parametros.php' class='btn btn-success align-self-end'>Parametros RAM</a>";
              }?>
             
             <a href="../Materia/alta_materia.php" class="btn btn-success align-self-end">Nueva Materia</a>
+
+            
         </div>
 
         <?php
@@ -165,6 +168,21 @@ $materias = $database->ejecutarConsulta("SELECT `materias`.*
             </table>
         </div> 
     </div> 
+
+    <div class="container mt-5">
+        <h3><span class="mr-2">🎂🎉</span> Hoy es el cumpleaños de:</h3>
+        <ul class="list-group mt-3">
+            <?php 
+            if (!empty($cumpleaños)) {
+                foreach ($cumpleaños as $alumno) {
+                    echo  "<li class='list-group-item'>" . $alumno['nombre'] . " " . $alumno['apellido'] . "</li>";
+                }
+            } else {
+                echo "<li class='list-group-item text-muted'>No hay cumpleaños hoy.</li>";
+            }
+            ?>
+        </ul>
+    </div>
 
     <a href="../index.php" class="btn btn-secondary">Volver</a>
 

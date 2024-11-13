@@ -16,10 +16,17 @@ $alumno = new Alumno();
         $fecha_nacimiento = $_POST['fecha_nacimiento'];
         $materia = $_POST['materia'];
 
+        $alumnoValidado = $alumno->validateAlumno($nombre, $apellido, $dni, $fecha_nacimiento);
 
-        $alumno->setAlumno($database, $nombre, $apellido, $dni, $fecha_nacimiento, $materia, $email);
+        if ($alumnoValidado == "valido") {
 
-        header('Location: index_alumno.php');
+            $alumno->setAlumno($database, $nombre, $apellido, $dni, $fecha_nacimiento, $materia, $email);
+
+            header('Location: index_alumno.php');
+        }else {
+            header('Location: alta_alumno.php?error='.$alumnoValidado);
+        }
+        
     }
 
     $materias = $database->ejecutarConsulta("SELECT * FROM `materias`");
@@ -79,6 +86,9 @@ $alumno = new Alumno();
             <div class="d-grid">
                 <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
+            <div><?php if (isset($_GET["error"])) {
+                echo $_GET["error"];
+            }?></div>
         </form>
     </div>
 

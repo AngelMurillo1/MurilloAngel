@@ -35,11 +35,21 @@
 
   El panel de control mostrará el nombre del profesor, su instituto y un listado de los alumnos, con la posibilidad de buscar por las materias que cursan.
   Al hacer clic en el botón **"Nueva Materia"**, el profesor podrá crear nuevas materias.
-  Una vez creada la materia, el sistema redirigirá al listado donde aparecerá un nuevo botón "Nuevo Alumno", que permitirá dar de alta a los alumnos.
+  Una vez creada la materia, el sistema redirigirá al listado donde aparecerán dos nuevos botones: 
+   - "Nuevo Alumno" este botón permitirá dar de alta a los alumnos.
+   - "Parametros RAM" este botón permitirá modificar los parametros RAM (Reglamento Academico Marco).
 
 **Nueva Materia**
 
   Al hacer clic en el botón "Nueva Materia", se mostrará una pantalla donde el profesor podrá crear una materia.
+
+**Parametros RAM**
+
+  Al hacer clic en "Parametros RAM" se le permitirá al profesor modificar los distintos parámetros:
+   - Porcentaje para promocionar la materia.
+   - Porcentaje para regularizar la materia.
+   - Nota de promoción.
+   - Nota para regularizar.
 
 **Nuevo Alumno**
 

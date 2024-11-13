@@ -8,6 +8,8 @@ $conn = $database->connect();// conecta a la base de datos
 $institutos = $database->ejecutarConsulta("SELECT * FROM `institutos`");
 $materias = $database->ejecutarConsulta("SELECT * FROM `materias`");
 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -67,8 +69,11 @@ $materias = $database->ejecutarConsulta("SELECT * FROM `materias`");
                 </div>
 
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+                    <button type="submit" class="btn btn-primary btn-block">Registrarse</button><br>
                 </div>
+                <div><?php if (isset($_GET["error"])) {
+                echo $_GET["error"];
+            }?></div>
             </form>
         </div>
     </div>

@@ -14,9 +14,7 @@ $mostrar = $alumno->getAlumno($database, $id);
 
 
 
-$asistencias = $database->ejecutarConsulta("SELECT * FROM `asistencias` WHERE `id_alumno` = $id ");
-
-
+$asistencias = $database->ejecutarConsulta("SELECT * FROM `asistencias` WHERE `id_alumno` = $id ")
 ?>
 
 <!DOCTYPE html>
@@ -55,6 +53,9 @@ $asistencias = $database->ejecutarConsulta("SELECT * FROM `asistencias` WHERE `i
         <!-- Botón de volver -->
         <a href="index_alumno.php" class="btn btn-secondary">Volver</a>
     </div>
+
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>

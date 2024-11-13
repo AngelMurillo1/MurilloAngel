@@ -20,15 +20,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $profesor = new Profesor();
 
-   $profesorCreado = $profesor->setProfesor($database, $nombre, $apellido, $dni, $email, $password, $legajo, $instituto);
-    
-
-    $database->ejecutarConsulta("INSERT INTO `institutos_profesores`(`id`, `id_instituto`, `id_profesor`) VALUES (NULL,'$instituto','$profesorCreado')");
-
+    $profesorValidado = $profesor->validateProfesor($nombre, $apellido, $dni, $email, $password, $legajo);
 
     
 
-    header('Location: ../index.php');
+    if ($profesorValidado == "valido") {
+        $profesorCreado = $profesor->setProfesor($database, $nombre, $apellido, $dni, $email, $password, $legajo, $instituto);
+    
+        $database->ejecutarConsulta("INSERT INTO `institutos_profesores`(`id`, `id_instituto`, `id_profesor`) VALUES (NULL,'$instituto','$profesorCreado')");
+
+        header('Location: ../index.php');
+    }else {
+        header('Location: registro.php?error='. $profesorValidado);
+        return $profesorValidado;
+    }
+
+   
+
+
+    
+
+    
     
 
     
